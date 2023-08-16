@@ -1,12 +1,12 @@
 import { useContext } from "react";
 import { Context } from "../context";
+
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
 
-
-
-export default function AutoComplete({handleInput }) {
+export default function AutoComplete({ handleInput }) {
+  
   const { data} = useContext(Context);
   
   return (

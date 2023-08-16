@@ -23,6 +23,7 @@ const FilteredList = ({ searchString }) => {
       return character.name.toLowerCase().includes(searchString);
     }
   });
+
   const rows = [].sort((a, b) => (a.name < b.name ? -1 : 1));
 
   for (let i = 0; i < filteredList.length; i++) {
@@ -33,6 +34,7 @@ const FilteredList = ({ searchString }) => {
       totalAmountOfEpisodes: filteredList[i].episode.length,
     });
   }
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -52,16 +54,18 @@ const FilteredList = ({ searchString }) => {
       <Table aria-label="custom pagination table">
         <TableHead>
           <TableRow>
-            {rows.length === 0
-              ? <TableCell>There is no such character</TableCell>
-              : Object.keys(rows[0])
-                  .map((key) =>
-                    (key.split("")[0].toUpperCase() + key.slice(1)).replace(
-                      /([a-z0-9])([A-Z])/g,
-                      "$1 $2",
-                    ),
-                  )
-                  .map((title) => <TableCell key={title}>{title}</TableCell>)}
+            {rows.length === 0 ? (
+              <TableCell>There is no such character</TableCell>
+            ) : (
+              Object.keys(rows[0])
+                .map((key) =>
+                  (key.split("")[0].toUpperCase() + key.slice(1)).replace(
+                    /([a-z0-9])([A-Z])/g,
+                    "$1 $2",
+                  ),
+                )
+                .map((title) => <TableCell key={title}>{title}</TableCell>)
+            )}
           </TableRow>
         </TableHead>
         <TableBody>

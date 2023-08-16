@@ -5,17 +5,14 @@ import { debounce } from "../utils/debounce";
 
 import Paper from "@mui/material/Paper";
 
-
 const CharactersTable = () => {
   const [input, setInput] = React.useState("");
-  
-  
 
   const handleInput = (e) => {
     setInput(e.target.value.toLowerCase());
   };
 
-  const optimizedWithDebounce = useCallback(debounce(handleInput), [])
+  const optimizedWithDebounce = useCallback(debounce(handleInput), []);
 
   return (
     <Paper>
